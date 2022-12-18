@@ -28,7 +28,7 @@ export function NewTODO ({
             <Box display={'flex'} flexDirection={'column'}>
                 <Center>
                     <Box 
-                        w={'75%'} minH={'50px'} 
+                        w={{base: '100%', lg: '75%'}} minH={'50px'} 
                         boxShadow={'dark-lg'} borderRadius={'5px'} 
                         display={'flex'} flexDirection={'row'}                        
                     >

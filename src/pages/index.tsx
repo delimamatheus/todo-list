@@ -55,7 +55,7 @@ export default function Home() {
             <NewTODO onEnter={handleAddTask} />
 
             <Center>
-              <Box mt={'50px'} w={'75%'} h={'500px'} overflowY={'auto'} boxShadow={'2xl'}>
+              <Box mt={{base: '20px', lg: '50px'}} w={{base: '100%', lg: '75%'}} h={{base: '400px',lg: '500px'}} overflowY={'auto'} boxShadow={'2xl'}>
                 {list.map((task, index)=>(
                   <Task key={index} task={task} deleteTask={handleDeleteTask}></Task>                  
                 ))}
