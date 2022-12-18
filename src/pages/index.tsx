@@ -13,6 +13,16 @@ export default function Home() {
     { id: 2, name: 'test 2', done: false },
   ])
 
+  const handleAddTask = (taskName: string) => {
+    let newList = [...list]
+    newList.push({
+      id: list.length + 1,
+      name: taskName,
+      done: false
+    })
+    setList(newList)
+  }
+
   return (
     <Center>
     <Box>
@@ -37,7 +47,7 @@ export default function Home() {
           >
             <Text fontSize={'36px'} textAlign={'center'}>TO-DO List</Text>
             
-            <NewTODO></NewTODO>
+            <NewTODO onEnter={handleAddTask} />
 
             <Center>
               <Box mt={'50px'} w={'75%'} h={'500px'} overflowY={'auto'} boxShadow={'2xl'}>

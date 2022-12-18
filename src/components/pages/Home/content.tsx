@@ -1,18 +1,45 @@
-import { useState } from 'react'
+import { useState, KeyboardEvent } from 'react'
 import { ArrowForwardIcon, CloseIcon } from "@chakra-ui/icons";
 import { Box, Button, Center, Checkbox, Divider, Input, Text } from "@chakra-ui/react";
 import { NewTODOProps } from "../../../interfaces/Home/INewTODO";
 import { TaskProps } from "../../../interfaces/Home/ITask";
 
 export function NewTODO ({
-}){
+    onEnter
+}: NewTODOProps){
+    const [inputText, setInputText] = useState('')
+
+    const handleKeyUp = (e: KeyboardEvent) => {
+        if((e.code === 'Enter' || e.code === 'NumpadEnter')  && inputText !== ''){
+            onEnter(inputText)
+            setInputText('')
+        }
+    }
+
+    const handleOnClick = () => {
+        if (inputText !== ''){
+            onEnter(inputText)
+            setInputText('')
+        }
+    }
+ 
     return (
         <>
             <Box display={'flex'} flexDirection={'column'}>
                 <Center>
-                    <Box w={'75%'} minH={'50px'} boxShadow={'dark-lg'} borderRadius={'5px'} display={'flex'} flexDirection={'row'}>
-                        <Input ml={'10px'} fontSize={'20px'} variant={'unstyled'} placeholder={'Insert a new to-do'}></Input>
-                        <Button mt={'5px'} mr={'10px'} w={'25%'} type={'submit'} rightIcon={<ArrowForwardIcon />}>Submit</Button>
+                    <Box 
+                        w={'75%'} minH={'50px'} 
+                        boxShadow={'dark-lg'} borderRadius={'5px'} 
+                        display={'flex'} flexDirection={'row'}                        
+                    >
+                        <Input 
+                            ml={'10px'}
+                            fontSize={'20px'} variant={'unstyled'} placeholder={'Insert a new to-do'} 
+                            value={inputText}
+                            onChange={(e) => setInputText(e.target.value)}
+                            onKeyUp={handleKeyUp}                            
+                        />
+                        <Button mt={'5px'} mr={'10px'} w={'25%'} onClick={handleOnClick} rightIcon={<ArrowForwardIcon />}>Submit</Button>
                     </Box>
                 </Center>                
             </Box>
