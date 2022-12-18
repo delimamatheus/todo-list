@@ -3,9 +3,7 @@ import { Box, Button, Center, Checkbox, Divider, Input, Text } from "@chakra-ui/
 import { NewTODOProps } from "../../../interfaces/Home/INewTODO";
 
 export function NewTODO ({
-    task,
-    setTask
-}: NewTODOProps ){
+}){
     return (
         <>
             <Box display={'flex'} flexDirection={'column'}>
@@ -16,20 +14,6 @@ export function NewTODO ({
                     </Box>
                 </Center>                
             </Box>
-        </>
-    )
-}
-
-export function List ({
-
-} ){
-    return (
-        <>
-            <Center>
-                <Box mt={'50px'} w={'75%'} h={'500px'} overflowY={'auto'} boxShadow={'2xl'}>
-                    <Task></Task>
-                </Box>
-            </Center>
         </>
     )
 }

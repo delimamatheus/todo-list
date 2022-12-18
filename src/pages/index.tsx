@@ -2,18 +2,16 @@ import { Box, Center, Text } from '@chakra-ui/react'
 import Head from 'next/head'
 import { useState } from 'react'
 import styles from '../../styles/Home.module.css'
-import { List, NewTODO } from '../components/pages/Home'
+import { NewTODO, Task } from '../components/pages/Home'
 import { MainLayout } from '../layout/MainLayout'
+import { ItemTask } from '../components/types/Home/ItemsTask'
 
 export default function Home() {  
 
-  const [task, setTask] = useState("")
-
-  const [list, setList] = useState([])
-
-  function onChangeHandler(){
-    setTask("");
-  }
+  const [list, setList] = useState<ItemTask[]>([
+    { id: 1, name: 'test', done: false },
+    { id: 2, name: 'test 2', done: false },
+  ])
 
   return (
     <Center>
@@ -39,10 +37,16 @@ export default function Home() {
           >
             <Text fontSize={'36px'} textAlign={'center'}>TO-DO List</Text>
             
-            <NewTODO task={task} setTask={onChangeHandler}></NewTODO>
+            <NewTODO></NewTODO>
 
-            <List></List>
-
+            <Center>
+              <Box mt={'50px'} w={'75%'} h={'500px'} overflowY={'auto'} boxShadow={'2xl'}>
+                {list.map((task, index)=>(
+                  <Task></Task>                  
+                ))}
+              </Box>
+            </Center>            
+            
           </Box>
         </Center>
       </MainLayout>
