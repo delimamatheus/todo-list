@@ -49,6 +49,7 @@ export function NewTODO ({
 
 export function Task ({
     task,
+    deleteTask,
 }: TaskProps ){
     const [isChecked, setIsChecked] = useState(task.done)
 
@@ -67,7 +68,7 @@ export function Task ({
                         </Checkbox>                        
                     </Box>
                     <Box w={'10%'} display={'flex'} flexDirection={'row'}>
-                        <Box as={'button'} bg={'none'}><CloseIcon w={'15px'} /></Box>
+                        <Box as={'button'} bg={'none'} onClick={() => deleteTask(task.id)}><CloseIcon w={'15px'} /></Box>
                     </Box>
                 </Box>                
             </Center>
