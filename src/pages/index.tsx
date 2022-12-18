@@ -7,6 +7,14 @@ import { MainLayout } from '../layout/MainLayout'
 
 export default function Home() {  
 
+  const [task, setTask] = useState("")
+
+  const [list, setList] = useState([])
+
+  function onChangeHandler(){
+    setTask("");
+  }
+
   return (
     <Center>
     <Box>
@@ -31,7 +39,7 @@ export default function Home() {
           >
             <Text fontSize={'36px'} textAlign={'center'}>TO-DO List</Text>
             
-            <NewTODO></NewTODO>
+            <NewTODO task={task} setTask={onChangeHandler}></NewTODO>
 
             <List></List>
 

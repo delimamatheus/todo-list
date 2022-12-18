@@ -1,9 +1,11 @@
 import { ArrowForwardIcon, CloseIcon } from "@chakra-ui/icons";
 import { Box, Button, Center, Checkbox, Divider, Input, Text } from "@chakra-ui/react";
+import { NewTODOProps } from "../../../interfaces/Home/INewTODO";
 
 export function NewTODO ({
-
-} ){
+    task,
+    setTask
+}: NewTODOProps ){
     return (
         <>
             <Box display={'flex'} flexDirection={'column'}>
