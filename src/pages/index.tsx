@@ -1,7 +1,6 @@
 import { Box, Center, Text } from '@chakra-ui/react'
 import Head from 'next/head'
 import { useState } from 'react'
-import styles from '../../styles/Home.module.css'
 import { NewTODO, Task } from '../components/pages/Home'
 import { MainLayout } from '../layout/MainLayout'
 import { ItemTask } from '../components/types/Home/ItemsTask'
@@ -36,7 +35,7 @@ export default function Home() {
     <Center>
     <Box>
       <Head>
-        <title>TITLE</title>
+        <title>TODO List</title>
         <meta name="description" content="Notification Page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -44,13 +43,10 @@ export default function Home() {
       <MainLayout>
         <Center>
           <Box
-            // bgColor={'#FAF5FF'}
             w={{base: '300px', lg: '800px'}}
             minH={{base: '500px', lg: '700px'}}
             mt={'100px'}
             mb={'100px'}
-            // boxShadow={'2xl'}
-            border='1px' //just debug
             display={'flex'}
             flexDirection={'column'}
           >

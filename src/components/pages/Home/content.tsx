@@ -1,6 +1,6 @@
 import { useState, KeyboardEvent } from 'react'
-import { ArrowForwardIcon, CloseIcon } from "@chakra-ui/icons";
-import { Box, Button, Center, Checkbox, Divider, Input, Text } from "@chakra-ui/react";
+import { CloseIcon } from "@chakra-ui/icons";
+import { Box, Button, Center, Checkbox, Input, Text } from "@chakra-ui/react";
 import { NewTODOProps } from "../../../interfaces/Home/INewTODO";
 import { TaskProps } from "../../../interfaces/Home/ITask";
 
@@ -39,7 +39,7 @@ export function NewTODO ({
                             onChange={(e) => setInputText(e.target.value)}
                             onKeyUp={handleKeyUp}                            
                         />
-                        <Button mt={'5px'} mr={'10px'} w={'25%'} onClick={handleOnClick} rightIcon={<ArrowForwardIcon />}>Submit</Button>
+                        <Button mt={'5px'} mr={'10px'} w={'25%'} onClick={handleOnClick}>Submit</Button>
                     </Box>
                 </Center>                
             </Box>
