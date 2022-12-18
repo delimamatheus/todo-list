@@ -42,7 +42,7 @@ export default function Home() {
             <Center>
               <Box mt={'50px'} w={'75%'} h={'500px'} overflowY={'auto'} boxShadow={'2xl'}>
                 {list.map((task, index)=>(
-                  <Task></Task>                  
+                  <Task key={index} task={task}></Task>                  
                 ))}
               </Box>
             </Center>            

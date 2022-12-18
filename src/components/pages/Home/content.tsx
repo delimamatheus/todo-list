@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { ArrowForwardIcon, CloseIcon } from "@chakra-ui/icons";
 import { Box, Button, Center, Checkbox, Divider, Input, Text } from "@chakra-ui/react";
 import { NewTODOProps } from "../../../interfaces/Home/INewTODO";
+import { TaskProps } from "../../../interfaces/Home/ITask";
 
 export function NewTODO ({
 }){
@@ -19,8 +21,10 @@ export function NewTODO ({
 }
 
 export function Task ({
+    task,
+}: TaskProps ){
+    const [isChecked, setIsChecked] = useState(task.done)
 
-} ){
     return (
         <>
             <Center>
@@ -28,10 +32,12 @@ export function Task ({
                     display={'flex'} flexDirection={'row'}
                     mt={'10px'}
                     w={'90%'} minH={'50px'}
-                    border={'1px'} borderRadius={'10px'} borderColor={'gray.100'} boxShadow={'xl'}
+                    border={'1px'} borderRadius={'10px'} borderColor={'gray.100'} boxShadow={'xl'}                    
                 >                    
                     <Box w={'90%'} display={'flex'} flexDirection={'row'}>
-                        <Checkbox ml={'20px'} >Task Template</Checkbox>                        
+                        <Checkbox isChecked={isChecked} onChange={(e) => setIsChecked(e.target.checked)} ml={'20px'} >                            
+                            <Text>{task.name}</Text>  
+                        </Checkbox>                        
                     </Box>
                     <Box w={'10%'} display={'flex'} flexDirection={'row'}>
                         <Box as={'button'} bg={'none'}><CloseIcon w={'15px'} /></Box>
