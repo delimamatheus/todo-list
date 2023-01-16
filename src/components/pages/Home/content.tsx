@@ -55,8 +55,8 @@ export function Task ({
 
     return (
         <>
-            <Center>
-                <Box                    
+            <Center as='li'>
+                <Box                                                        
                     display={'flex'} flexDirection={'row'}
                     mt={'10px'}
                     w={'90%'} minH={'50px'}

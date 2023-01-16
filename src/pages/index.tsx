@@ -22,10 +22,6 @@ export default function Home() {
     setList(newList)
   }
 
-  // const handleChangeDone = (taskDone: boolean) => {
-    
-  // }
-
   const handleDeleteTask = (taskId: number) => {
     const newList = list.filter((list) => list.id !== taskId)
     setList(newList)
@@ -33,39 +29,37 @@ export default function Home() {
 
   return (
     <Center>
-    <Box>
-      <Head>
-        <title>TODO List</title>
-        <meta name="description" content="Notification Page" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Head>
+      <title>TODO List</title>
+      <meta name="description" content="Notification Page" />
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
 
-      <MainLayout>
-        <Center>
-          <Box
-            w={{base: '300px', lg: '800px'}}
-            minH={{base: '500px', lg: '700px'}}
-            mt={'100px'}
-            mb={'100px'}
-            display={'flex'}
-            flexDirection={'column'}
-          >
-            <Text fontSize={'36px'} textAlign={'center'}>TO-DO List</Text>
-            
-            <NewTODO onEnter={handleAddTask} />
+    <MainLayout>
+      <Center>
+        <Box
+          w={{base: '300px', lg: '800px'}}
+          minH={{base: '500px', lg: '700px'}}
+          mt={'100px'}
+          mb={'100px'}
+          display={'flex'}
+          flexDirection={'column'}
+        >
+          <Text as='h1' fontSize={'36px'} textAlign={'center'}>TO-DO List</Text>
+          
+          <NewTODO onEnter={handleAddTask} />
 
-            <Center>
-              <Box mt={{base: '20px', lg: '50px'}} w={{base: '100%', lg: '75%'}} h={{base: '400px',lg: '500px'}} overflowY={'auto'} boxShadow={'2xl'}>
-                {list.map((task, index)=>(
-                  <Task key={index} task={task} deleteTask={handleDeleteTask}></Task>                  
+          <Center>
+            <Box as='ul' mt={{base: '20px', lg: '50px'}} w={{base: '100%', lg: '75%'}} h={{base: '400px',lg: '500px'}} overflowY={'auto'} boxShadow={'2xl'}>
+                {list.map((task, index)=>(                
+                  <Task key={index} task={task} deleteTask={handleDeleteTask}></Task>                                    
                 ))}
-              </Box>
-            </Center>            
-            
-          </Box>
-        </Center>
-      </MainLayout>
-    </Box>
+            </Box>
+          </Center>            
+          
+        </Box>
+      </Center>
+    </MainLayout>
     </Center>
   )
 }
